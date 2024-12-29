@@ -35,7 +35,7 @@ const User = () => {
   const handleSignup = async (formData) => {
     try {
       console.log("Signup Data:", formData);
-      await axios.post(`${baseURL}/api/user/signup`, formData);
+      await axios.post(`${baseURL}/api/users/signup`, formData);
     } catch (error) {
       console.log(error);
     }
@@ -46,7 +46,7 @@ const User = () => {
   const handleLogin = async (email, password) => {
     try {
       setUserLoading(true);
-      const response = await axios.post(`${baseURL}/api/user/login`, {
+      const response = await axios.post(`${baseURL}/api/users/login`, {
         email,
         password,
       });
