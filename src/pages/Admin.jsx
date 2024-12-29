@@ -13,7 +13,7 @@ const Admin = () => {
   const handleLogin = async (email, password) => {
     try {
       setUserLogin(true);
-      const response = await axios.post(`${baseURL}/api/user/login`, {
+      const response = await axios.post(`${baseURL}/api/users/login`, {
         email,
         password,
       });
