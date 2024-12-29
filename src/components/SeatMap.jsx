@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const SeatMap = ({ seats, bookedSeat, availableSeat }) => {
+const SeatMap = ({ seats, availableSeat }) => {
   console.log(seats);
   return (
     <div className="space-y-4">
