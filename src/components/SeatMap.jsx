@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const SeatMap = ({ seats }) => {
+const SeatMap = ({ seats, bookedSeat, availableSeat }) => {
   console.log(seats);
   return (
     <div className="space-y-4">
@@ -25,12 +25,19 @@ const SeatMap = ({ seats }) => {
           })}
         </div>
       ))}
+      <div className="flex flex-row justify-between">
+        <div className="font-semibold text-red-500">{`Booked Seats ${
+          80 - availableSeat
+        }`}</div>
+        <div className="font-semibold text-green-500">{`Available Seats ${availableSeat}`}</div>
+      </div>
     </div>
   );
 };
 
 SeatMap.propTypes = {
   seats: PropTypes.array.isRequired,
+  availableSeat: PropTypes.number,
 };
 
 export default SeatMap;

@@ -16,6 +16,7 @@ const User = () => {
   const [bookingLoading, setBookingLoading] = useState(false);
   const [isSignup, setIsSignup] = useState(false);
   const [error, setError] = useState(""); // State to track error messages
+  const [availableSeat, setAvailableSeat] = useState();
 
   useEffect(() => {
     fetchSeats();
@@ -24,7 +25,8 @@ const User = () => {
   const fetchSeats = async () => {
     try {
       const response = await axios.get(`${baseURL}/api/seat/all`);
-      setSeats(response.data);
+      setSeats(response.data.seats);
+      setAvailableSeat(response.data.unreservedSeatsCount);
     } catch (error) {
       console.error("Error fetching seats:", error);
     }
@@ -106,7 +108,7 @@ const User = () => {
       {/* Left: Seat Map */}
       <div className="flex flex-col flex-2 w-2/3 p-4  justify-center items-center">
         <h2 className=" text-xl font-bold mb-4">Train Seat Map</h2>
-        <SeatMap seats={seats} />
+        <SeatMap seats={seats} availableSeat={availableSeat} />
       </div>
       <div className="border h-2/3 rounded mx-auto"></div>
 
