@@ -104,7 +104,10 @@ const User = () => {
   };
 
   return (
-    <div className="flex h-screen items-center justify-center">
+    <div
+      className="flex h-screen items-center justify-center"
+      style={{ transform: "scale(0.9)", transformOrigin: "center" }}
+    >
       {/* Left: Seat Map */}
       <div className="flex flex-col flex-2 w-2/3 p-4  justify-center items-center">
         <h2 className=" text-xl font-bold mb-4">Train Seat Map</h2>
